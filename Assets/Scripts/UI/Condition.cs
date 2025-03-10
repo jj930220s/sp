@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,21 +9,26 @@ public class Condition : MonoBehaviour
     public float maxValue;
     public float passiveValue;
 
+    public ReactiveProperty<float> uiValue = new ReactiveProperty<float>();
+
     public Image uiBar;
 
-
+    public string _name;
 
     // Start is called before the first frame update
     void Start()
     {
         curValue = startValue;
+
+        uiValue.DistinctUntilChanged().Subscribe(val =>
+        {
+            Debug.Log(_name+"°ª º¯°æ");
+            uiBar.fillAmount = val / maxValue;
+
+        }).AddTo(this);
+        uiValue.Value = curValue;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        uiBar.fillAmount = GetPercentage();
-    }
 
     private float GetPercentage()
     {
@@ -31,12 +37,11 @@ public class Condition : MonoBehaviour
 
     public void Add(float value)
     {
-        curValue = Mathf.Min(curValue + value,maxValue);
+        uiValue.Value= Mathf.Min(uiValue.Value + value, maxValue);
     }
 
     public void Subtract(float value)
     {
-        curValue = Mathf.Max(curValue - value, 0);
+        uiValue.Value= Mathf.Max(uiValue.Value - value, 0);
     }
-
 }

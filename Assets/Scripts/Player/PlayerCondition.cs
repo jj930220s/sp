@@ -21,6 +21,12 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public event Action onTakeDamage;
 
+    private void Start()
+    {
+        health._name = "체력 ";
+        hunger._name = "배고픔 ";
+        stamina._name = "스테미나 ";
+    }
 
     // Update is called once per frame
     void Update()
