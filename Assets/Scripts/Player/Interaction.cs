@@ -17,7 +17,7 @@ public class Interaction : MonoBehaviour
 
     public TextMeshProUGUI promptText;
 
-    private Camera camera;
+    private Camera _camera;
 
 
 
@@ -25,7 +25,7 @@ public class Interaction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
 
 
 
-            Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
