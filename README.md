@@ -27,12 +27,14 @@ Read Me
    땅에 닿아있다면(점프판을 밟은 게 아니라 옆에서 부딫혔을 때)
 
 3. UI 관리
+   
    ![Image](https://github.com/user-attachments/assets/571ad0c1-df2d-43a3-8f7e-b031c477830d)
    
    Update에서 매 프레임마다 값이 변했는지 감시하는게 아니라,
    값이 변하면 게이지 ui의 값을 수정하도록 만들었다.
 
 5. 레이저 함정 및 가시화
+   
    ![Image](https://github.com/user-attachments/assets/6e097ffc-51be-416f-9aeb-3a519619b5da)
    
    gizmo 사용시 게임씬에서는 보이지 않기 때문에, 플레이어가 볼 수 있도록
