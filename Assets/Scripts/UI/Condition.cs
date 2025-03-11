@@ -18,7 +18,6 @@ public class Condition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        curValue = startValue;
 
         uiValue.DistinctUntilChanged().Subscribe(val =>
         {
@@ -26,7 +25,7 @@ public class Condition : MonoBehaviour
             uiBar.fillAmount = val / maxValue;
 
         }).AddTo(this);
-        uiValue.Value = curValue;
+        uiValue.Value = startValue;
     }
 
 
